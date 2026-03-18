@@ -8,12 +8,28 @@
 
 //  Count total characters excluding spaces
 
-// $count = mb_strlen("Sonu");
-// echo $count;
-$x  = "sonu hello";
-$y = str_replace( " ","",$x);
-echo ($y); 
-// echo strlen($y);
+// // $count = mb_strlen("Sonu");
+// // echo $count;
+// $x  = "sonu hello";
+// $y = str_replace( " ","",$x);
+// echo ($y); 
+// // echo strlen($y);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // q3 - Convert a string to uppercase
 // $name = readline('Enter the Name ');
 // echo strtoupper($name);
@@ -158,3 +174,8 @@ echo ($y);
 
 
 // question 18:- Replace multiple unwanted words
+
+$str = "Hello where are You , How are you";
+$search = ['are' , 'You'];
+$replace = ['ARE' , 'u'];
+echo str_ireplace($search , $replace , $str);
