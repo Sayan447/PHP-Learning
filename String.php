@@ -60,4 +60,28 @@
 
 // The str_replace() function replaces some characters with some other characters in a string.
 $x = "Hello World!";
-echo str_replace("World", "Dolly", $x);
+// echo str_replace("World", "Dolly", $x);
+
+
+
+
+
+
+
+
+// ----------------- strrev()- for reverse the function 
+// $s = "hello Bhi";
+// echo strrev($s);
+
+
+
+
+
+// TRIM()---------------
+
+// Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+
+
+
+$x = "    Hello World!    ";
+echo trim($x);
