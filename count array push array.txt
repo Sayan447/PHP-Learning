@@ -21,5 +21,6 @@ array_splice()
 array_shift()
 key_exists()
 
-
+arsort — Sort an array in descending order and maintain index association
+asort — Sort an array in ascending order and maintain index association
 
