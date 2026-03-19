@@ -59,7 +59,7 @@
 
 
 // The str_replace() function replaces some characters with some other characters in a string.
-$x = "Hello World!";
+// $x = "Hello World!";
 // echo str_replace("World", "Dolly", $x);
 
 
@@ -83,5 +83,5 @@ $x = "Hello World!";
 
 
 
-$x = "    Hello World!    ";
-echo trim($x);
+// $x = "    Hello World!    ";
+// echo trim($x);
