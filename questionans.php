@@ -361,3 +361,14 @@ $arr = [1,4,7,1,5,9];
 // };
 
 // print_r($rev);
+
+
+
+
+
+
+
+// Count frequency of each element
+// $arr = [1,2,3,2,5,6];
+// $result = array_count_values($arr);
+// print_r($result);
