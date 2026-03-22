@@ -122,15 +122,23 @@ $user = [
 
 
 // user-id
-echo 'user-id'. ":-" . $user['user_id'];
+// echo 'user-id'. ":-" . $user['user_id'];
 
-echo PHP_EOL;
+// echo PHP_EOL;
 
-echo 'address'. ":-" . $user['address']['city'];
+// echo 'address'. ":-" . $user['address']['city'];
 
-echo PHP_EOL;
+// echo PHP_EOL;
 
-foreach ($user['orders'] as $order) {
-    echo PHP_EOL;
-    echo "product: " . $order['product'] . ", price: " . $order['price'] ."\n" ;
-}
+// foreach ($user['orders'] as $order) {
+//     echo PHP_EOL;
+//     echo "product: " . $order['product'] . ", price: " . $order['price'] ."\n" ;
+// }
+// just hit and try------------------------------------------------------------------------------------
+
+// foreach ($user['orders'] as $order) {
+//     foreach ($order['product'] as $p) {
+//         echo "product: " . $p['name'] . 
+//              ", price: " . $p['price'] . PHP_EOL;
+//     }
+// }
