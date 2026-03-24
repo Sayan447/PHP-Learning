@@ -296,6 +296,27 @@ $students = [
 // total marks
 // Get marks array
 
+function getGrade($average) {
+    if ($average >= 90) {
+        return "A";
+    } elseif ($average >= 75) {
+        return "B";
+    } elseif ($average >= 60) {
+        return "C";
+    } elseif ($average >= 40) {
+        return "D";
+    } else {
+        return "F";
+    }
+};
+
+
+$topper = "";
+$highestAvg = 0;
+
+//echo PHP_EOL;
+$Bca = [];
+
 foreach ($students as $student){
 
 
@@ -304,22 +325,26 @@ foreach ($students as $student){
 
     // Calculate total marks
     $total = $marks['math'] + $marks['english'] + $marks['computer'];
-    // echo PHP_EOL;
-    // echo $total;
+    //echo PHP_EOL;
+   // echo $total;
     // print_r (count($marks));
-    // exit();
+    
 
     // Calculate average marks
 
-    $average = $total / count($marks); 
+    $average = round(($total / 3),2); 
+
+    // Grade
+    $grade = getGrade($average);
 
 
-    echo PHP_EOL;
-    echo "Student: " . $student['name'] ;
-    echo PHP_EOL;
-    echo "Total Marks: " . $total;
-    echo PHP_EOL;
-    echo "Average Marks: " . $average ;
+
+    // echo PHP_EOL;
+    // echo "Student: " . $student['name'] ;
+    // echo PHP_EOL;
+    // echo "Total Marks: " . $total;
+    // echo PHP_EOL;
+    // echo "Average Marks: " . $average ;
 
 
 
@@ -337,25 +362,17 @@ foreach ($students as $student){
 
 
 
-// function getava
-function getGrade($average) {
-    if ($average >= 90) {
-        return "A";
-    } elseif ($average >= 75) {
-        return "B";
-    } elseif ($average >= 60) {
-        return "C";
-    } elseif ($average >= 40) {
-        return "D";
-    } else {
-        return "F";
+
+
+
+//echo PHP_EOL;
+ 
+if ($average > $highestAvg) {
+        $highestAvg = $average;
+        $topper = $student['name'];
     }
-};
-$grade = getGrade($average);
-echo PHP_EOL;
-echo "Your average score is $avg. Your grade is $grade.";
 
-
+//echo 'Topper result:- ' . $topper . 'with avarage salary ' . $highestAvg;
 
 // if ($average >= 90 and $grade = 'A'){
 //     echo 'Topper Student '. " :- " . $student['name']. 'and the ID is ' . $student['id'];
@@ -363,31 +380,33 @@ echo "Your average score is $avg. Your grade is $grade.";
 
 
 
-// // 
-// $new_student = [];
-// if ($student['details']['course'] === "BCA"){
-//     $new_student[] = [
-//         'id' => $student['id'],
-//         'name' => $student['name'],
-        
-
-//     ];
 
 
 if ($student['details']['course'] === "BCA") {
 
-        $marks = $student['details']['marks'];
-        $total = array_sum($marks);
-        $average = $total / count($marks);
-        $grade = getGrade($average);
+        // $marks = $student['details']['marks'];
+        // $total = array_sum($marks);
+        // $average = round($total / count($marks),2);
+        // $grade = getGrade($average);
 
-        echo "\nStudent: " . $student['name'];
-        echo "\nCourse: BCA";
-        echo "\nAverage: $average";
-        echo "\nGrade: $grade\n";
-    }
+        // echo "\nStudent: " . $student['name'];
+        // echo "\nCourse: BCA";
+        // echo "\nAverage: $average";
+        // echo "\nGrade: $grade\n";
+
+        $Bca[] = [
+            "name"=>$student['name'],
+            "id"=>$student['id'],
+            "grade"=>$grade
+        ];
+        //print_r ($Bca);
+    };
  
 
 
-// };
+
+
+    
+ 
 }
+print_r($Bca);
