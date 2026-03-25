@@ -72,9 +72,9 @@
 
 
 
-// $handle = fopen("test_set.csv", "r");
+$handle = fopen("test_set.csv", "r");
 
-// $header = fgetcsv($handle);
+$header = fgetcsv($handle);
 
 
  
@@ -85,7 +85,12 @@
 // $dateIndex = array_search("Subscription Date", $header);
 
 // while (($row = fgetcsv($handle)) !== false) {
-//     if ($row[$dateIndex] > "2021-01-01") {
+   
+//     // print_r(strtotime($row[$dateIndex]));
+//     // exit();
+    
+// if ($row[$dateIndex] > "2021-01-01") {
+        
 //         print_r( $row[$firstname].'-'.$row[$lastname]. PHP_EOL); 
 //     }
  
@@ -97,24 +102,45 @@
 
 
 
-// // Display First Name, Last Name, Email,Company for customers whose country is Macao
+// Display First Name, Last Name, Email,Company for customers whose country is Macao
 $macao = [];
 
 if (($handle = fopen('test_set.csv', 'r')) !== FALSE) {
     while (($data = fgetcsv($handle)) !== FALSE) {
-        $macao[] = [
+     
+        if ($data[6] === "Macao") {
+           $macao[] = [
             'FirstName' => $data[2],
             'Last Name' => $data[3],
             'Company' => $data[4],
             'city' => $data[5],
             "Email" => $data[9],
         ];
-        // if ($date[6] === "Macao") {
-        // echo "First Name: $firstName | Last Name: $lastName | Email: $email | Company: $company\n";
-        // }
+        }
     }
     fclose($handle);
 }
 
 // Optional: print to check
 print_r($macao);
+
+
+exit();
+
+
+
+
+
+
+
+$csvUrls = [];
+// Customers with HTTPS Websites
+$handle = fopen("test_set.csv", "r");
+
+$header = fgetcsv($handle);
+
+while(($data = fgetcsv($handle)) !== FALSE){
+    $csvUrls[] = $data[11];
+}
+fclose($handle);
+print_r($csvUrls);
