@@ -111,13 +111,12 @@
 
 
 
-$file = fopen("test_set.csv", "r"); 
+// $fptr = fopen ('myopen.txt' , 'w');
+// fwrite($fptr , "this is  the best file on this planet. Please son't argue with me on this one .");
+// fwrite($fptr,'Ursula von der Leyen
+// is the German politician serving as the first female President of the European Commission since December 2019');
+// fclose($fptr);
 
-// display full name and read csv
-while (($row = fgetcsv($file)) !== false) {
-    echo ($row[2]."-".$row[3]).PHP_EOL;
-    // foreach ($row as $column) {
-    //     var_dump($column) . " | ";  // print all columns in row
-    // }
-    // echo PHP_EOL;
-}
+
+$a = readfile('myfile.txt');
+echo $a;
