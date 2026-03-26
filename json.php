@@ -26,6 +26,7 @@ $data = json_decode($responce,true);
 
 
 foreach ($data['users'] as $user) {
+    
     echo "ID: " . $user['id'];
     echo PHP_EOL;
     echo "Name: " . $user['name'];
