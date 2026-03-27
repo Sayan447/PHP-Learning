@@ -1,0 +1,159 @@
+{
+  "status": "success",
+  "api_version": "v1.2",
+  "generated_at": "2026-01-14T10:30:00Z",
+  "company": {
+    "name": "TechSoft Pvt Ltd",
+    "gst": "07AABCU9603R1ZP",
+    "support_email": "support@techsoft.com",
+    "support_phone": "+91-9876543210",
+    "address": {
+      "city": "Bengaluru",
+      "state": "KA",
+      "country": "India",
+      "pincode": "560001"
+    }
+  },
+  "users": [
+    {
+      "id": 101,
+      "name": "Rahul",
+      "email": "rahul@example.com",
+      "phone": "+91-9000000001",
+      "is_active": true,
+      "registered_on": "2024-05-10",
+      "address": {
+        "city": "Delhi",
+        "state": "DL",
+        "pincode": "110001",
+        "geo": {
+          "lat": 28.6139,
+          "lng": 77.2090
+        }
+      },
+      "orders": [
+        {
+          "order_id": "ORD001",
+          "date": "2025-01-10",
+          "status": "delivered",
+          "payment": {
+            "method": "UPI",
+            "transaction_id": "TXN908123",
+            "amount": 56000,
+            "currency": "INR",
+            "paid_on": "2025-01-10T14:20:00"
+          },
+          "shipping": {
+            "courier": "BlueDart",
+            "tracking_no": "BD123456789",
+            "estimated_delivery": "2025-01-12"
+          },
+          "items": [
+            {
+              "product": "Laptop",
+              "category": "Electronics",
+              "price": 55000,
+              "qty": 1,
+              "tax": 18,
+              "discount": 0
+            },
+            {
+              "product": "Mouse",
+              "category": "Accessories",
+              "price": 500,
+              "qty": 2,
+              "tax": 18,
+              "discount": 5
+            }
+          ],
+          "logs": [
+            { "status": "ordered", "time": "2025-01-10T10:00:00" },
+            { "status": "shipped", "time": "2025-01-10T18:30:00" },
+            { "status": "delivered", "time": "2025-01-12T11:45:00" }
+          ]
+        },
+        {
+          "order_id": "ORD002",
+          "date": "2025-01-12",
+          "status": "cancelled",
+          "payment": {
+            "method": "Card",
+            "transaction_id": "TXN908555",
+            "amount": 1500,
+            "currency": "INR",
+            "refund": {
+              "status": "processed",
+              "refund_id": "RF12345",
+              "refunded_on": "2025-01-13"
+            }
+          },
+          "items": [
+            {
+              "product": "Keyboard",
+              "category": "Accessories",
+              "price": 1500,
+              "qty": 1,
+              "tax": 18,
+              "discount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Anita",
+      "email": "anita@example.com",
+      "phone": "+91-9000000002",
+      "is_active": true,
+      "registered_on": "2024-08-21",
+      "address": {
+        "city": "Mumbai",
+        "state": "MH",
+        "pincode": "400001"
+      },
+      "orders": []
+    },
+    {
+      "id": 103,
+      "name": "Suresh",
+      "email": "suresh@example.com",
+      "phone": "+91-9000000003",
+      "is_active": false,
+      "registered_on": "2023-12-01",
+      "address": {
+        "city": "Chennai",
+        "state": "TN",
+        "pincode": "600001"
+      },
+      "orders": [
+        {
+          "order_id": "ORD010",
+          "date": "2024-11-05",
+          "status": "returned",
+          "payment": {
+            "method": "NetBanking",
+            "transaction_id": "TXN778899",
+            "amount": 2500,
+            "currency": "INR"
+          },
+          "items": [
+            {
+              "product": "Headphones",
+              "category": "Electronics",
+              "price": 2500,
+              "qty": 1,
+              "tax": 18,
+              "discount": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "total_users": 3,
+    "active_users": 2,
+    "total_orders": 4
+  }
+}
