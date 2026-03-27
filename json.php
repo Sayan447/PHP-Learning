@@ -60,13 +60,13 @@ $data = json_decode($responce,true);
 
 //Count total order per customer
 
-$totalcount = [];
-foreach ($data['users'] as $user) {
-    echo $user['name'] . " - Total Orders: " . count($user['orders']) . PHP_EOL;
-}
-echo PHP_EOL;
-// echo($counter).PHP_EOL;
-exit();
+// $totalcount = [];
+// foreach ($data['users'] as $user) {
+//     echo $user['name'] . " - Total Orders: " . count($user['orders']) . PHP_EOL;
+// }
+// echo PHP_EOL;
+// // echo($counter).PHP_EOL;
+// exit();
 
 
  
@@ -83,36 +83,38 @@ exit();
 $details = [];
 
 foreach($data['users'] as $user){
-    $totalcount = 0;
+    $totalAmount = 0;
+    if (!empty($user['orders'])) {
+        foreach ($user['orders'] as $order) {
+            $totalAmount += $order['payment']['amount'];
+        }
+    }
+    // $totalcount = 0;
     // here is totoal order 
     
     // $counter = count($user['orders']);
-   
-   
     // print_r ($user);
-        foreach($user['orders'] as $orders){
-        // print_r(($orders));
+        // foreach($user['orders'] as $orders){
+        // // print_r(($orders));
         // foreach($orders['payment'] as $Payment){
-        //     $totalcount += $Payment['amount'];
-
+        //     echo($Payment);
         // }
-        print_r ( $orders['payment']['amount']);
+        // print_r ( $orders['payment']['amount']);
     // $totalcount += $orders['payment']['amount'];
         // exit();
-
-
+    $details[] = [
+    'user_id' => $user['id'],
+    'name' => $user['name'],
+    'email' => $user['email'],
+    'City' => $user['address']['city'],
+    'Total Order' => $totalAmount,
+    ];
     }
-//      $details[] = [
-//     'user_id' => $user['id'],
-//     'name' => $user['name'],
-//     'email' => $user['email'],
-//     'City' => $user['address']['city'],
-//     'Total Order' => $totalcount,
-//     ];
+     
  
-}
-// echo PHP_EOL;
-// print_r($details).PHP_EOL;
+
+echo PHP_EOL;
+print_r($details).PHP_EOL;
 // exit();
 //     // print_r ('name:- ' . $user['name']).PHP_EOL;
    
@@ -124,21 +126,21 @@ foreach($data['users'] as $user){
 
 
 // creating csv file 
-// $filename = "details.csv";
-// // open file 
-// $file = fopen($filename , 'w');
+$filename = "details.csv";
+// open file 
+$file = fopen($filename , 'w');
 
 
-// fputcsv($file, ['user_id', 'name' , 'email' , 'City' , 'Total Order']);
+fputcsv($file, ['user_id', 'name' , 'email' , 'City' , 'Total Order']);
 
 
-// // write data
-// foreach($details as $row){
-//     fputcsv($file, [$row['user_id'], $row['name'] , $row['email'] , $row['City'] , $row['Total Order']]);
-// }
-// fclose($file);
+// write data
+foreach($details as $row){
+    fputcsv($file, [$row['user_id'], $row['name'] , $row['email'] , $row['City'] , $row['Total Order']]);
+}
+fclose($file);
 
-// echo "CSV created...........";
+echo "CSV created...........";
 
 
 
