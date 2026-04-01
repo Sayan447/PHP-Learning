@@ -1,54 +1,77 @@
-<?php 
-// echo 'Sayan';
-// $x = 5;
-// echo  PHP_EOL;  // for new line
-// var_dump($x); 
-
-///////
-
-
-
-// var_dump(5);
-// var_dump("John");
-// var_dump(3.14);
-// var_dump(true);
-// var_dump([2, 3, 56]);
-// var_dump(NULL);
+<?php
+//  project Name: Banking System
+// Features:
+//     create bank account
+//     deposit money
+//     withdraw money
+//     savings account earns interest
 
 
-// output:- 
-// int(5)
-// string(4) "John"
-// float(3.14)
-// bool(true)
-// array(3) {
-//   [0]=>
-//   int(2)
-//   [1]=>
-//   int(3)
-//   [2]=>
-//   int(56)
-// }
-// NULL
-// $ar[] = [1,2];
-// print($ar);
+
+// project structure:
+// bank-
+//     |--bankAccount.php
+//        |-- deposit,withdraw,show
+       
+//        |--savingsAccount.php
+//           |--addInterest
+    
+//     |--index
+        
 
 
-#saYaN /\ chaKraBorty #
+// sample O/p:
 
-//sayan Chakraborty
+// Account Holder: saptarshi
+// Current Balance: 5000
 
-$str = '#saYaN /\ chaKraBorty #';
-$sub_str = str_replace(["#", "/" , "\\" ],"" ,$str);
-// echo $sub_str;
-$sub_str = trim($sub_str);
-$sub_str = strtolower($sub_str);
-// echo($sub_str);
-$word = explode(" " , $sub_str);
-// print_r($word);
+// Deposited: 2000
+// Withdrawn: 1500
 
-// echo ($word[0]);
+// Interest Added: 275
+// Account Holder: saptarshi
+// Current Balance: 5775 
 
-$cap = $word[0] . " " . ucfirst($word[2]);
-// print_r($cap);
-echo $cap;
+// ----------------------------------------------------------------
+require_once 'savingsAccount.php';
+
+// Create account
+$account = new savingsAccount("soptarshi", 5000,5.5);
+
+// Show initial balance
+
+while(true){
+    $choice = (int)readline("Enter your choice (1-4): ");
+    switch ($choice) {
+    case 1:
+        $amount = (int)readline("Enter amount to deposit: ");
+        $account->deposit($amount);
+        break;
+
+    case 2:
+        $amount = (int)readline("Enter amount to withdraw: ");
+        $account->withdraw($amount);
+        break;
+
+    case 3:
+        $balance = $account->show();
+        print_r($balance);        
+        break;
+
+    case 4:
+        $account->addInterest();
+        break;
+        
+    case 5:
+        exit();
+
+    default:
+        echo "Invalid choice! Please select 1-4.\n";
+        break;
+
+}
+
+}
+
+?>
+

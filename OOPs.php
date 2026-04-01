@@ -41,19 +41,59 @@
 
 
 
-class TestClass {
-  public $value;
+// class TestClass {
+//   public $value;
 
-  // Constructor Method
-  public function __construct($val) {
-    $this->value = $val;
-  }
+//   // Constructor Method
+//   public function __construct($val) {
+//     $this->value = $val;
+//   }
 
-  // Destructor Method
-  public function __destruct() {
-    echo "Object is being destroyed.";
+//   // Destructor Method
+//   public function __destruct() {
+//     echo "Object is being destroyed.";
+//   }
+// }
+
+// $obj = new TestClass("Hello World");
+// echo $obj->value; 
+
+
+
+// classes and object
+// class class1{
+//   public $x = 1;
+//   function fun1(){
+
+//     // echo ++$this->x;
+//     return $this->x++;
+//     echo PHP_EOL;
+//   }
+
+//   function fun2(){
+//     echo "func2";
+//   }
+
+// }
+
+// $obj = new class1();
+// // $obj->fun1();
+// echo $obj->x++;
+
+
+class class1{
+  public $x = 1;
+  // ------------------
+  function fun1(){
+    return $this->x++;
   }
 }
+// this->x++ :- means: “use the current object”
 
-$obj = new TestClass("Hello World");
-echo $obj->value; 
+// we are creating two different objects, each with its own $x.
+$obj1=new class1();
+$obj2=new class1();
+
+
+$obj1->fun1();
+echo $obj2->x;
