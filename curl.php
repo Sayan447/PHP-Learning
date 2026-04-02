@@ -35,15 +35,21 @@ libxml_use_internal_errors(true); // suppress warnings for imperfect HTML
  $dom->loadHTML($html) ;
 // exit();
 
-// libxml_clear_errors();
+libxml_clear_errors();
 
-$div = $dom->getElementsByTagName('div')->item(1)->nodeValue ?? '';
-echo "div: " . $div . PHP_EOL;
+// $div = $dom->getElementsByTagName('div')->item(1)->nodeValue ?? '';
+// echo "div: " . $div . PHP_EOL;
 
-$a = $dom->getElementsByTagName('a')->item(1)->nodeValue ?? '';
-echo "a: " . $a . PHP_EOL;
+// $a = $dom->getElementsByTagName('a')->item(1)->nodeValue ?? '';
+// echo "a: " . $a . PHP_EOL;
 
-
+$xpath = new DOMXpath($dom);
+$nodes = $xpath->query("//div[@class='product']");
+// echo $nodes;
+// exit();
+foreach ($nodes as $node) {
+    echo $node->nodeValue . PHP_EOL;
+}
 
 
 
