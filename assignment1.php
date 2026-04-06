@@ -78,6 +78,7 @@ $xpath = new DOMXpath($dom);
 
 
 // products above 800
+// -----------------------
 // $nodes = $xpath->query("//span[contains(@class,'price')]");
 
 // foreach ($nodes as $node) {
@@ -103,7 +104,6 @@ $xpath = new DOMXpath($dom);
 
 
 
-
 // make csv of product(mobile.csv,desktop.csv) 
 // id,name price,link
 
@@ -112,8 +112,8 @@ $nodes = $xpath->query("//div[@data-cat='mobile']//div[contains(@class,'product'
 
 // print_r($nodes);
 // exit();
-$product = [];
-foreach($nodes as $node){
+// $product = [];
+// foreach($nodes as $node){
     // echo $node->nodeValue . PHP_EOL;
     // var_dump($node->nodeValue); // string 
     // $array = [];
@@ -126,37 +126,37 @@ foreach($nodes as $node){
     // print_r ($array);
 
     // -----------------------------
-     $id = $node->getAttribute('data-id');
-    $nameNode = $xpath->query(".//h2", $node)->item(0);
-    $priceNode = $xpath->query(".//span[contains(@class,'price')]", $node)->item(0);
-    $linkNode = $xpath->query(".//a", $node)->item(0);
+//      $id = $node->getAttribute('data-id');
+//     $nameNode = $xpath->query(".//h2", $node)->item(0);
+//     $priceNode = $xpath->query(".//span[contains(@class,'price')]", $node)->item(0);
+//     $linkNode = $xpath->query(".//a", $node)->item(0);
  
 
-    $product[] = [
-        'id'    => $id ? : "", 
+//     $product[] = [
+//         'id'    => $id ? : "", 
 
-        'name'  => $nameNode ? trim($nameNode->nodeValue) : "",
-        'price' => $priceNode ? (int) $priceNode->nodeValue : 0,
-        'link'  => $linkNode ? $linkNode->getAttribute('href') : "",
+//         'name'  => $nameNode ? trim($nameNode->nodeValue) : "",
+//         'price' => $priceNode ? (int) $priceNode->nodeValue : 0,
+//         'link'  => $linkNode ? $linkNode->getAttribute('href') : "",
          
-    ];
-}
-print_r($product);
+//     ];
+// }
+// print_r($product);
 
 
-$file = fopen("mobile.csv", "w");
+// $file = fopen("mobile.csv", "w");
 
-// header
-fputcsv($file, ['ID','name', 'price', 'link']);
+// // header
+// fputcsv($file, ['ID','name', 'price', 'link']);
 
-// data
-foreach ($product as $row) {
-    fputcsv($file, $row);
-}
+// // data
+// foreach ($product as $row) {
+//     fputcsv($file, $row);
+// }
 
-fclose($file);
+// fclose($file);
 
-echo "mobile.csv created!";
+// echo "mobile.csv created!";
 
 
 
@@ -200,3 +200,34 @@ echo "mobile.csv created!";
 // fclose($file);
 
 // echo "desktop.csv created!";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// price with --id--
+
+// $products = $xpath->query("//div[contains(@class, 'product')]");
+
+// foreach ($products as $product) {
+ 
+//     $id = $product->getAttribute('data-id');
+    
+//     $priceNode = $xpath->query(".//span[@class='price']", $product)->item(0);
+//     // print_r($priceNode);
+//     // exit();
+//     $price = $priceNode ? $priceNode->nodeValue : '0';
+
+//     echo "ID: $id , Price: $price" . PHP_EOL;
+// }
