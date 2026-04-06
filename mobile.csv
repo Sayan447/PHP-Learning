@@ -1,3 +1,3 @@
-name,price,link
-iPhone,799,View
-Samsung,699,View
+ID,name,price,link
+101,iPhone,799,/p/iphone
+102,Samsung,699,/p/samsung
