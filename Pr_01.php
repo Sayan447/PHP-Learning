@@ -411,3 +411,113 @@ echo "CSV file created successfully: $csvFile\n";
 // fclose($fp);
 
 // echo "CSV file created successfully: wipo_standards_full.csv\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ✅ 1. XPath for the Entire Standards Table
+
+// If you want the full <table>:
+
+// //table[@class='standard-table']
+// ✅ 2. XPath: Access All Rows (tr)
+// //table[@class='standard-table']/tbody/tr
+// ✅ 3. XPath: Access Rows Starting From ST.2 to ST.88
+
+// The first column contains the standard code (e.g., ST.2, ST.3, … ST.88).
+
+// 👉 Select only rows whose first <td> starts with ST.
+// //table[@class='standard-table']/tbody/tr[starts-with(td[1], 'ST.')]
+// ✅ 4. XPath: Select a Specific Standard (Example: ST.2)
+// //table[@class='standard-table']/tbody/tr[td[1]='ST.2']
+// ✅ 5. XPath: Select All Standards From ST.2 to ST.88
+
+// Since XPath cannot compare string-numbers easily, use a range match with regex (XPath 2.0+):
+
+// //table[@class='standard-table']/tbody/tr[
+//     matches(td[1], '^ST\.(2|[3-9]|[1-7][0-9]|8[0-8])$')
+// ]
+
+// This matches:
+
+// ST.2
+// ST.3 – ST.9
+// ST.10 – ST.79
+// ST.80 – ST.88
