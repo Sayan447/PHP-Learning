@@ -1,0 +1,10 @@
+<books>
+    <book id="1">
+        <title>PHP Basic</title>
+        <author>John Doe </author>
+    </book>
+    <book id="2">
+        <title>XML Guide</title>
+        <author>john carlton</author>
+    </book>
+</books>
